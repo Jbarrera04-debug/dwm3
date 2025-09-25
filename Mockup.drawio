@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 OPR/121.0.0.0" version="28.2.5">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 OPR/121.0.0.0" version="28.2.5" pages="2">
   <diagram name="Página-1" id="Kp45Nn1ePqCE4870r1nl">
     <mxGraphModel dx="1977" dy="1079" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -134,6 +134,89 @@
               <mxPoint x="320" y="490" />
             </Array>
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="lNNwcMCe1CRKoG4ApYDS" name="Página-2">
+    <mxGraphModel dx="2516" dy="1373" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QdK7oZ-uArDltKpIjJRx-2" target="5Ae7YRQHVFKWLs7U5NEX-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QdK7oZ-uArDltKpIjJRx-2" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;strokeColor2=#008cff;strokeColor3=#c4c4c4;mainText=,;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="330" width="631" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="QdK7oZ-uArDltKpIjJRx-3" value="Kafeehaus" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;whiteSpace=wrap;" vertex="1" parent="QdK7oZ-uArDltKpIjJRx-2">
+          <mxGeometry x="60" y="12" width="110" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QdK7oZ-uArDltKpIjJRx-4" value="&lt;div&gt;https://www.kafeehaus.cl/forgot-password&lt;/div&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="QdK7oZ-uArDltKpIjJRx-2">
+          <mxGeometry x="130" y="60" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-6" value="cliente@cafe.cl" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.pwField;strokeColor=#999999;mainText=;align=left;fontColor=#666666;fontSize=17;spacingLeft=3;" vertex="1" parent="QdK7oZ-uArDltKpIjJRx-2">
+          <mxGeometry x="75.5" y="280" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-19" value="&lt;h1&gt;¿Olvidaste tu contraseña?&lt;/h1&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="QdK7oZ-uArDltKpIjJRx-2">
+          <mxGeometry x="155.5" y="170" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-20" value="&lt;i&gt;Email:&lt;/i&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="QdK7oZ-uArDltKpIjJRx-2">
+          <mxGeometry x="75.5" y="250" width="454.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-21" value="Te enviaremos un correo con las&amp;nbsp; instrucciones para restablecer tu contraseña" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="QdK7oZ-uArDltKpIjJRx-2">
+          <mxGeometry x="165.5" y="210" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-22" value="Solicitar" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="QdK7oZ-uArDltKpIjJRx-2">
+          <mxGeometry x="240.5" y="340" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-26" value="Ventana de confirmación" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;fontColor=#666666;mainText=;fontSize=17;labelBackgroundColor=none;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="940" y="210" width="360" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-27" value="&lt;h1&gt;¡Listo!&lt;/h1&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1065" y="290" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-28" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Miscellaneous-2232/check-646.svg" vertex="1" parent="1">
+          <mxGeometry x="1100" y="330" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-29" value="Se ha enviado un enlace de recuperación a tu correo electrónico." style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="380" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-45" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;strokeColor2=#008cff;strokeColor3=#c4c4c4;mainText=,;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="940" y="550" width="580" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-46" value="Kafeehaus" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;whiteSpace=wrap;" vertex="1" parent="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry x="60" y="12" width="110" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-47" value="&lt;div&gt;https://www.kafeehaus.cl/forgot-password&lt;/div&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry x="130" y="60" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-48" value="invitado@cafe.cl" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.pwField;strokeColor=#999999;mainText=;align=left;fontColor=#666666;fontSize=17;spacingLeft=3;" vertex="1" parent="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry x="50" y="250" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-49" value="&lt;h1&gt;¿Olvidaste tu contraseña?&lt;/h1&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry x="130" y="140" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-50" value="&lt;i&gt;Email:&lt;/i&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry x="50" y="220" width="454.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-51" value="Te enviaremos un correo con las&amp;nbsp; instrucciones para restablecer tu contraseña" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry x="140" y="180" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-52" value="Solicitar" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry x="215" y="330" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-53" value="&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;El correo ingresado no está asociado a ninguna cuenta&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry x="115" y="290" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.548;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="QdK7oZ-uArDltKpIjJRx-2" target="5Ae7YRQHVFKWLs7U5NEX-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-57" value="Escenario 1" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="940" y="180" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5Ae7YRQHVFKWLs7U5NEX-58" value="Escenario 2" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="940" y="520" width="70" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
