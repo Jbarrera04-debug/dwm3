@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Kafeehaus</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background: #3f3f3f;
+      color: white;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    img {
+      max-width: 120px;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 10px 5px 0;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    .btn-cancel {
+      background: #e74c3c;
+    }
+
+    .btn-cancel:hover {
+      background: #c0392b;
+    }
+
+    .cart {
+      margin: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+
+    .cart-item img {
+      max-width: 60px;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+
+    .cart-info {
+      flex-grow: 1;
+      margin-left: 10px;
+    }
+
+    .cart-info span {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .total {
+      font-weight: bold;
+      margin-top: 15px;
+      text-align: right;
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background: #d3d3d3;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="carrito" class="container">
+    <header>Kafeehaus</header>
+    <h2>Carrito</h2>
+    <div class="cart">
+      <div class="cart-item">
+        <img src="imagenes/Gemini_Generated_Image_2jno6t2jno6t2jno.png" alt="Café">
+        <div class="cart-info">
+          <span><strong>Café Cappuccino tradicional</strong></span>
+          <span>$1.800</span>
+        </div>
+      </div>
+
+      <div class="cart-item">
+        <img src="imagenes/brownie.png" alt="Brownie">
+        <div class="cart-info">
+          <span><strong>Brownie mediano</strong></span>
+          <span>$1.900</span>
+        </div>
+      </div>
+
+      <p class="total">Total: $3.100</p>
+    </div>
+    <button class="btn" onclick="mostrarDetalle()">Confirmar pedido</button>
+  </div>
+  <div id="detalle" class="container" style="display:none;">
+    <header>Kafeehaus</header>
+    <h2>Detalle del artículo</h2>
+    <div>
+      <img src="imagenes/Gemini_Generated_Image_2jno6t2jno6t2jno.png" alt="Café">
+      <img src="imagenes/brownie.png" alt="Brownie">
+    </div>
+    <p class="total">Total: $3.100</p>
+    <button class="btn">Realizar pago</button>
+    <button class="btn btn-cancel" onclick="abrirModal()">Cancelar</button>
+  </div>
+  <div id="menu" class="container" style="display:none;">
+    <header>Kafeehaus</header>
+    <h2>Menú</h2>
+    <table>
+      <tr><th>Producto</th><th>Valor</th></tr>
+      <tr><td>Espresso</td><td>$1.200</td></tr>
+      <tr><td>Capuccino</td><td>$1.800</td></tr>
+      <tr><td>Latte vainilla</td><td>$2.200</td></tr>
+      <tr><td>Té Chai</td><td>$1.500</td></tr>
+      <tr><td>Muffin chocolate</td><td>$1.400</td></tr>
+      <tr><td>Sándwich vegetariano</td><td>$2.500</td></tr>
+      <tr><td>Croissant</td><td>$1.300</td></tr>
+    </table>
+  </div>
+  <div id="modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>¿Seguro que quieres cancelar el pedido?</h3>
+      <button class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn" onclick="confirmarCancelacion()">Confirmar</button>
+    </div>
+  </div>
+
+  <script>
+    function mostrarDetalle() {
+      document.getElementById("carrito").style.display = "none";
+      document.getElementById("detalle").style.display = "block";
+    }
+
+    function abrirModal() {
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function cerrarModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    function confirmarCancelacion() {
+      document.getElementById("detalle").style.display = "none";
+      document.getElementById("modal").style.display = "none";
+      document.getElementById("menu").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

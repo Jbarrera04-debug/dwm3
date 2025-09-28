@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis pedidos - Anulación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #00cc00;
+      padding: 15px;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+    }
+    .pedido {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    button {
+      background: #d9d9d9;
+      border: 1px solid #999;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #bbb;
+    }
+    /* Estilos de modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 320px;
+      text-align: center;
+    }
+    .modal-content h3 {
+      margin-top: 0;
+    }
+    .modal-content label {
+      display: block;
+      text-align: left;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+    .modal-content input[type="radio"] {
+      margin-right: 8px;
+    }
+    .btn-ok {
+      margin-top: 15px;
+      background: #ddd;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-ok:hover {
+      background: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <header>Mis pedidos</header>
+
+  <div class="container">
+    <div class="pedido">
+      <span>Latte tradicional - Muffin</span>
+      <button onclick="abrirAnulacion()">Anular pedido</button>
+    </div>
+  </div>
+  <div class="modal" id="modal-motivo">
+    <div class="modal-content">
+      <h3>Anulación de pedido</h3>
+      <form id="form-motivo">
+        <label><input type="radio" name="motivo" value="equivocado"> Producto equivocado</label>
+        <label><input type="radio" name="motivo" value="espera"> Tiempo de espera muy largo</label>
+        <label><input type="radio" name="motivo" value="decision"> Cambio de decisión</label>
+        <label><input type="radio" name="motivo" value="otro"> Otro</label>
+        <button type="submit" class="btn-ok">Continuar</button>
+      </form>
+    </div>
+  </div>
+  <div class="modal" id="modal-exito">
+    <div class="modal-content">
+      <h3>Anulación de pedido</h3>
+      <p>El pedido ha sido anulado con éxito.</p>
+      <button class="btn-ok" onclick="cerrarModal('modal-exito')">OK</button>
+    </div>
+  </div>
+  <div class="modal" id="modal-error">
+    <div class="modal-content">
+      <h3>Anulación de pedido</h3>
+      <p>No se puede anular un pedido entregado.</p>
+      <button class="btn-ok" onclick="cerrarModal('modal-error')">OK</button>
+    </div>
+  </div>
+
+  <script>
+    const modalMotivo = document.getElementById("modal-motivo");
+    const modalExito = document.getElementById("modal-exito");
+    const modalError = document.getElementById("modal-error");
+    let pedidoEntregado = false;
+
+    function abrirAnulacion() {
+      if (pedidoEntregado) {
+        modalError.style.display = "flex";
+      } else {
+        modalMotivo.style.display = "flex";
+      }
+    }
+
+    function cerrarModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    document.getElementById("form-motivo").addEventListener("submit", function(e) {
+      e.preventDefault();
+      modalMotivo.style.display = "none";
+      modalExito.style.display = "flex";
+    });
+  </script>
+</body>
+</html>

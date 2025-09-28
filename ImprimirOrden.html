@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Kafeehaus - Orden de despacho</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+    }
+
+    .container {
+      width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 15px;
+    }
+
+    h2 {
+      background: #ccc;
+      margin: 0;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #0069d9;
+    }
+    .summary {
+      display: none;
+      width: 300px;
+      margin: 20px auto;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    .summary h3 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .summary ul {
+      list-style: none;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Pedidos confirmados</h2>
+    <ul>
+      <li>Capuccino tradicional</li>
+      <li>Muffin de chocolate</li>
+      <li>Croissant mediano</li>
+    </ul>
+    <button class="btn" id="generate">Generar orden de despacho</button>
+  </div>
+
+  <div class="summary" id="summary">
+    <h3>ORDEN DE DESPACHO<br>26/09/2025</h3>
+    <strong>Productos:</strong>
+    <ul>
+      <li>- Capuccino x1</li>
+      <li>- Muffin x1</li>
+      <li>- Croissant x1</li>
+    </ul>
+    <p><strong>Total de pedidos:</strong> 3</p>
+  </div>
+
+  <script>
+    document.getElementById("generate").addEventListener("click", () => {
+      document.getElementById("summary").style.display = "block";
+    });
+  </script>
+</body>
+</html>

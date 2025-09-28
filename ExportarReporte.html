@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Kafeehaus - Reportes</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    .report-container {
+      margin: 40px auto;
+      width: 700px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .report-title {
+      background: #0d6efd;
+      color: white;
+      padding: 10px;
+      font-size: 20px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .total {
+      text-align: right;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .export-btn {
+      display: inline-block;
+      margin: 20px 10px 0;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .export-btn:hover {
+      background: #0069d9;
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container" id="report">
+    <div class="report-title">Reporte de ventas</div>
+    <table id="sales-table">
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10:15</td><td>Capuccino</td><td>2</td><td>$3.600</td>
+        </tr>
+        <tr>
+          <td>12:30</td><td>Croissant</td><td>1</td><td>$1.300</td>
+        </tr>
+        <tr>
+          <td>15:45</td><td>Cheesecake</td><td>1</td><td>$3.000</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total">Total: $7.900</div>
+    <button class="export-btn" id="export-pdf">Exportar a PDF</button>
+    <button class="export-btn" id="export-excel">Exportar a Excel</button>
+  </div>
+
+  <script>
+    document.getElementById("export-pdf").addEventListener("click", () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.text("Reporte de ventas", 14, 20);
+
+      doc.autoTable({
+        startY: 30,
+        html: "#sales-table",
+      });
+
+      doc.save("reporte_ventas.pdf");
+    });
+    document.getElementById("export-excel").addEventListener("click", () => {
+      const table = document.getElementById("sales-table");
+      const wb = XLSX.utils.table_to_book(table, { sheet: "Reporte" });
+      XLSX.writeFile(wb, "reporte_ventas.xlsx");
+    });
+  </script>
+</body>
+</html>
