@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Kafeehaus - Inicio de sesión</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #eaeaea;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+    }
+
+    .login-box {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px 30px;
+      width: 300px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .login-box h2 {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 10px;
+      background-color: #3b9fff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary:hover {
+      background-color: #007bff;
+    }
+
+    .link {
+      display: block;
+      font-size: 12px;
+      color: #3b9fff;
+      text-decoration: none;
+      margin-bottom: 15px;
+    }
+
+    .btn-secondary {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background-color: #45a049;
+    }
+
+    /* Estilos para escenarios (modales) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      width: 280px;
+      text-align: center;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 15px;
+    }
+
+    .modal button {
+      padding: 8px 15px;
+      border: 1px solid #ccc;
+      background: #eee;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    iframe {
+      width: 90%;
+      height: 300px;
+      border: 1px solid #aaa;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>Kafeehaus</header>
+
+  <div class="container">
+    <div class="login-box">
+      <h2>Inicio de sesión</h2>
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" placeholder="ejemplo@gmail.com">
+
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" placeholder="********">
+
+      <button class="btn-primary" onclick="iniciarSesion()">Iniciar sesión</button>
+
+      <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+
+      <p>Nuevo usuario:</p>
+      <button class="btn-secondary">Registrarse</button>
+    </div>
+  </div>
+
+  <!-- Escenarios -->
+  <div id="escenario1" class="modal">
+    <div class="modal-content">
+      <h3>Panel de administrador</h3>
+      <iframe src="https://www.kafeehaus.cl/admin"></iframe>
+      <br><button onclick="cerrar('escenario1')">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="escenario2" class="modal">
+    <div class="modal-content">
+      <h3>Registro</h3>
+      <p>Credenciales incorrectas</p>
+      <button onclick="cerrar('escenario2')">OK</button>
+    </div>
+  </div>
+
+  <div id="escenario3" class="modal">
+    <div class="modal-content">
+      <h3>Registro</h3>
+      <p>Usuario no registrado</p>
+      <button onclick="cerrar('escenario3')">OK</button>
+    </div>
+  </div>
+
+  <script>
+    function iniciarSesion() {
+      const usuario = document.getElementById("usuario").value;
+      const password = document.getElementById("password").value;
+
+      if (usuario === "admin@cafe.cl" && password === "123456") {
+        abrir("escenario1"); // Panel administrador
+      } else if (usuario === "admin@cafe.cl") {
+        abrir("escenario2"); // Credenciales incorrectas
+      } else {
+        abrir("escenario3"); // Usuario no registrado
+      }
+    }
+
+    function abrir(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+
+    function cerrar(id) {
+      document.getElementById(id).style.display = "none";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Procesar Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      width: 450px;
+      text-align: center;
+    }
+    h2 {
+      color: green;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    input {
+      display: block;
+      width: 90%;
+      margin: 12px auto;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: -8px;
+      margin-bottom: 10px;
+      text-align: left;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button {
+      background: rgb(0, 123, 255);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 17px;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: darkblue;
+    }
+    .success {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .link {
+      margin-top: 15px;
+      display: block;
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="payment-card">
+    <h2>Tarjeta de crédito o débito</h2>
+    <form id="payment-form">
+      <input type="text" id="name" placeholder="Nombre del titular" required>
+      <input type="text" id="card" placeholder="Número de tarjeta (correcta: 4824 2802 5922 2051)" required>
+      <div id="card-error" class="error"></div>
+      <input type="text" id="date" placeholder="Fecha (MM/AA)" required>
+      <input type="text" id="cvv" placeholder="CVV" required>
+      <p><strong>Total a pagar: $7.500</strong></p>
+      <button type="submit">Aceptar</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("payment-form");
+    const cardInput = document.getElementById("card");
+    const cardError = document.getElementById("card-error");
+    const cardDiv = document.getElementById("payment-card");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const cardNumber = cardInput.value.replace(/\s+/g, "");
+
+      if (cardNumber === "4824280259222051") {
+        cardDiv.innerHTML = `
+          <h2>¡Pago realizado con éxito!</h2>
+          <p class="success">Tu pago fue procesado con éxito.<br>
+          Hemos enviado tu boleta a <strong>cliente@cafeteria.cl</strong> en formato PDF.</p>
+          <a href="#" class="link">Descargar boleta</a>
+          <button onclick="location.reload()">Volver al inicio</button>
+        `;
+      } else {
+        cardError.textContent = "*Pago no autorizado. Por favor intente con otra tarjeta.";
+      }
+    });
+  </script>
+</body>
+</html>

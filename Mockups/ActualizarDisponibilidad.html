@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kafeehaus - Mockup con secuencias</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background:#f6f7f9; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; }
+    .browser { background:#fff; border:1px solid #dcdfe6; border-radius:6px; padding:14px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+    .menu-title { font-weight:700; font-size:30px; text-align:center; margin:6px 0 16px; }
+    table thead th { background:#b8c7d3; }
+    .flow-stage { display:none; }
+    .flow-stage.active { display:block; }
+    .small-note { font-size:.85rem; color:#666; }
+    .arrow-label { font-size:.85rem; text-align:center; margin:8px 0; color:#444; }
+    .breadcrumb-sim { background:transparent; padding:0; margin-bottom:12px; }
+    .stage-card { min-height:120px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h4 class="mb-3">Mockup secuenciado - Administración de productos</h4>
+
+  <nav aria-label="Progreso" class="mb-3">
+    <ol class="breadcrumb breadcrumb-sim">
+      <li class="breadcrumb-item" id="crumb-inicio">Inicio</li>
+      <li class="breadcrumb-item" id="crumb-editar">Editar</li>
+      <li class="breadcrumb-item" id="crumb-resultado">Resultado</li>
+    </ol>
+  </nav>
+
+  <div class="row gy-3">
+    <div class="col-lg-6">
+      <div class="browser flow-stage active" id="stage-inicio">
+        <div class="menu-title">Menú</div>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle" id="table-inicio">
+            <thead><tr><th>Producto</th><th style="width:110px">Valor</th><th style="width:120px">Estado</th></tr></thead>
+            <tbody>
+              <tr data-id="1"><td>Espresso</td><td class="text-end">$1.200</td><td class="text-center">Disponible</td></tr>
+              <tr data-id="2"><td>Capuccino</td><td class="text-end">$1.800</td><td class="text-center">Disponible</td></tr>
+              <tr data-id="3"><td>Latte vainilla</td><td class="text-end">$2.200</td><td class="text-center">Disponible</td></tr>
+              <tr data-id="4"><td>Cheesecake de maracuyá</td><td class="text-end">$3.000</td><td class="text-center">Disponible</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center mt-3">
+          <button class="btn btn-secondary" id="btn-edit">Editar</button>
+        </div>
+      </div>
+
+      <div class="browser flow-stage" id="stage-editar">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div>
+            <h5 class="mb-0">Editar Productos</h5>
+            <div class="small-note">Marca o desmarca estado y luego elige la ruta a seguir.</div>
+          </div>
+          <div>
+            <button class="btn btn-outline-secondary btn-sm" id="btn-cancel-edit">Cancelar</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle" id="table-editar">
+            <thead><tr><th>Producto</th><th style="width:100px">Valor</th><th style="width:120px">Estado</th></tr></thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="d-flex gap-2 justify-content-end mt-3">
+          <button class="btn btn-outline-primary" id="btn-branch-unavail">Guardar</button>
+          <button class="btn btn-primary" id="btn-branch-allavail">Marcar todos como disponibles</button>
+        </div>
+      </div>
+
+      <div class="browser flow-stage" id="stage-result-unavail">
+        <div class="menu-title">Menú</div>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle" id="table-result-unavail">
+            <thead><tr><th>Producto</th><th style="width:110px">Valor</th><th style="width:120px">Estado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="text-end mt-2">
+          <button class="btn btn-outline-secondary btn-sm" id="btn-back-to-edit-1">Volver</button>
+        </div>
+      </div>
+
+      <div class="browser flow-stage" id="stage-result-allavail">
+        <div class="menu-title">Menú</div>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle" id="table-result-allavail">
+            <thead><tr><th>Producto</th><th style="width:110px">Valor</th><th style="width:120px">Estado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="text-end mt-2">
+          <button class="btn btn-outline-secondary btn-sm" id="btn-back-to-edit-2">Volver</button>
+        </div>
+      </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+const stages = {
+  inicio: document.getElementById('stage-inicio'),
+  editar: document.getElementById('stage-editar'),
+  resultUnavail: document.getElementById('stage-result-unavail'),
+  resultAllavail: document.getElementById('stage-result-allavail'),
+};
+
+function showStage(key) {
+  document.querySelectorAll('.breadcrumb-item').forEach(el => el.classList.remove('text-primary'));
+  document.querySelectorAll('.flow-stage').forEach(el => el.classList.remove('active'));
+  stages[key].classList.add('active');
+
+  if (key === 'inicio') document.getElementById('crumb-inicio').classList.add('text-primary');
+  if (key === 'editar') document.getElementById('crumb-editar').classList.add('text-primary');
+  if (key === 'resultUnavail' || key === 'resultAllavail') document.getElementById('crumb-resultado').classList.add('text-primary');
+}
+
+let productos = [];
+function loadInitialModel() {
+  productos = [];
+  document.querySelectorAll('#table-inicio tbody tr').forEach(tr => {
+    const id = tr.getAttribute('data-id') || '';
+    const tds = tr.querySelectorAll('td');
+    productos.push({
+      id: id,
+      nombre: tds[0].textContent.trim(),
+      valor: tds[1].textContent.trim(),
+      disponible: true
+    });
+  });
+}
+loadInitialModel();
+
+function renderInicioFromModel() {
+  const tbody = document.querySelector('#table-inicio tbody');
+  tbody.innerHTML = '';
+  productos.forEach(p => {
+    const tr = document.createElement('tr');
+    tr.dataset.id = p.id;
+    tr.innerHTML = `<td>${escapeHtml(p.nombre)}</td><td class="text-end">${escapeHtml(p.valor)}</td><td class="text-center">${p.disponible ? 'Disponible' : 'No Disponible'}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderEditarFromModel() {
+  const tbody = document.querySelector('#table-editar tbody');
+  tbody.innerHTML = '';
+  productos.forEach((p, idx) => {
+    const tr = document.createElement('tr');
+    tr.dataset.id = p.id;
+    tr.innerHTML = `
+      <td>${escapeHtml(p.nombre)}</td>
+      <td class="text-end">${escapeHtml(p.valor)}</td>
+      <td class="text-center">
+        <input type="checkbox" class="form-check-input edit-available" data-index="${idx}" ${p.disponible ? 'checked' : ''}>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderResultTable(targetId, model) {
+  const tbody = document.querySelector('#' + targetId + ' tbody');
+  tbody.innerHTML = '';
+  model.forEach(p => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${escapeHtml(p.nombre)}</td><td class="text-end">${escapeHtml(p.valor)}</td><td class="text-center">${p.disponible ? 'Disponible' : 'No Disponible'}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+}
+
+document.getElementById('btn-edit').addEventListener('click', () => {
+  renderEditarFromModel();
+  showStage('editar');
+});
+
+document.getElementById('btn-cancel-edit').addEventListener('click', () => {
+  renderInicioFromModel();
+  showStage('inicio');
+});
+
+document.getElementById('btn-branch-unavail').addEventListener('click', () => {
+  syncModelFromEdit();
+  const anyNot = productos.some(p => !p.disponible);
+  if (!anyNot) {
+    productos[productos.length - 1].disponible = false;
+  }
+
+  renderResultTable('table-result-unavail', productos);
+  showStage('resultUnavail');
+});
+
+document.getElementById('btn-branch-allavail').addEventListener('click', () => {
+  syncModelFromEdit();
+
+  productos.forEach(p => p.disponible = true);
+
+  renderResultTable('table-result-allavail', productos);
+  showStage('resultAllavail');
+});
+
+document.getElementById('btn-back-to-edit-1').addEventListener('click', () => {
+  renderEditarFromModel();
+  showStage('editar');
+});
+document.getElementById('btn-back-to-edit-2').addEventListener('click', () => {
+  renderEditarFromModel();
+  showStage('editar');
+});
+
+document.getElementById('simulate-edit').addEventListener('click', () => {
+  renderEditarFromModel();
+  showStage('editar');
+});
+document.getElementById('simulate-branch1').addEventListener('click', () => {
+  renderEditarFromModel();
+  setTimeout(() => document.getElementById('btn-branch-unavail').click(), 180);
+});
+document.getElementById('simulate-branch2').addEventListener('click', () => {
+  renderEditarFromModel();
+  setTimeout(() => document.getElementById('btn-branch-allavail').click(), 180);
+});
+
+document.getElementById('reset-all').addEventListener('click', () => {
+  loadInitialModel();
+  renderInicioFromModel();
+  showStage('inicio');
+});
+
+function syncModelFromEdit() {
+  const checkboxes = document.querySelectorAll('.edit-available');
+  checkboxes.forEach(cb => {
+    const idx = parseInt(cb.dataset.index, 10);
+    productos[idx].disponible = cb.checked;
+  });
+}
+renderInicioFromModel();
+showStage('inicio');
+
+</script>
+</body>
+</html>
